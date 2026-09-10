@@ -92,6 +92,61 @@
 				});
 
 			}
+// Contact form.
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const submitButton = document.getElementById('submit-button');
 
+if (contactForm) {
+
+    contactForm.addEventListener('submit', async function(event) {
+
+        event.preventDefault();
+
+        // Change button while sending.
+        submitButton.value = 'Sending...';
+        submitButton.disabled = true;
+
+        formStatus.textContent = '';
+
+        try {
+
+            const formData = new FormData(contactForm);
+
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (!response.ok) {
+                throw new Error('Form submission failed.');
+            }
+
+            // Success.
+            formStatus.textContent =
+                'Message sent successfully! I will get back to you soon.';
+
+            contactForm.reset();
+
+        } catch (error) {
+
+            console.error(error);
+
+            formStatus.textContent =
+                'Something went wrong. Please try again.';
+
+        } finally {
+
+            submitButton.value = 'Send Message';
+            submitButton.disabled = false;
+
+        }
+
+    });
+
+}
 
 })(jQuery);
