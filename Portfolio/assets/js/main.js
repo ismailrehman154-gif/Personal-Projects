@@ -1,198 +1,488 @@
-/**
- * Strata by HTML5 UP
- * html5up.net | @ajlkn
- * Free for personal and commercial use under the CCA 3.0 license
- */
-
-(function($) {
-
-    var $window = $(window),
-        $body = $('body'),
-        $header = $('#header'),
-        $footer = $('#footer'),
-        $main = $('#main'),
-
-        settings = {
-
-            // Parallax background effect?
-            parallax: true,
-
-            // Parallax factor.
-            parallaxFactor: 20
-        };
+(() => {
+    "use strict";
 
 
-    // Breakpoints.
-    breakpoints({
+    // =====================================
+    // ELEMENTS
+    // =====================================
 
-        xlarge:  [ '1281px', '1800px' ],
-        large:   [ '981px',  '1280px' ],
-        medium:  [ '737px',  '980px' ],
-        small:   [ '481px',  '736px' ],
-        xsmall:  [ null,     '480px' ],
+    const body =
+        document.body;
 
-    });
+    const header =
+        document.getElementById(
+            "site-header"
+        );
 
+    const menuButton =
+        document.getElementById(
+            "menu-button"
+        );
 
-    // Play initial animations on page load.
-    $window.on('load', function() {
+    const navigation =
+        document.getElementById(
+            "navigation"
+        );
 
-        window.setTimeout(function() {
+    const contactForm =
+        document.getElementById(
+            "contact-form"
+        );
 
-            $body.removeClass('is-preload');
+    const submitButton =
+        document.getElementById(
+            "submit-button"
+        );
 
-        }, 100);
+    const buttonLabel =
+        submitButton?.querySelector(
+            ".button-label"
+        );
 
-    });
+    const formStatus =
+        document.getElementById(
+            "form-status"
+        );
 
-
-    // Touch?
-    if (browser.mobile) {
-
-        // Turn on touch mode.
-        $body.addClass('is-touch');
-
-        // Height fix (mostly for iOS).
-        window.setTimeout(function() {
-
-            $window.scrollTop($window.scrollTop() + 1);
-
-        }, 0);
-
-    }
-
-
-    // Footer.
-    breakpoints.on('<=medium', function() {
-
-        $footer.insertAfter($main);
-
-    });
-
-    breakpoints.on('>medium', function() {
-
-        $footer.appendTo($header);
-
-    });
+    const year =
+        document.getElementById(
+            "year"
+        );
 
 
-    // Header.
-    // Disable parallax on IE and mobile.
-    if (browser.name == 'ie' || browser.mobile) {
 
-        settings.parallax = false;
+    // =====================================
+    // CURRENT YEAR
+    // =====================================
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
 
     }
 
 
-    if (settings.parallax) {
 
-        breakpoints.on('<=medium', function() {
+    // =====================================
+    // HEADER SCROLL EFFECT
+    // =====================================
 
-            $window.off('scroll.strata_parallax');
+    function updateHeader() {
 
-            $header.css('background-position', '');
+        if (!header) return;
 
-        });
+        if (window.scrollY > 20) {
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
 
 
-        breakpoints.on('>medium', function() {
+    updateHeader();
 
-            $header.css('background-position', 'left 0px');
 
-            $window.on('scroll.strata_parallax', function() {
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        {
+            passive: true
+        }
+    );
 
-                $header.css(
-                    'background-position',
-                    'left ' +
-                    (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) +
-                    'px'
+
+
+    // =====================================
+    // MOBILE MENU
+    // =====================================
+
+    function closeMenu() {
+
+        if (
+            !menuButton ||
+            !navigation
+        ) {
+            return;
+        }
+
+
+        menuButton.classList.remove(
+            "active"
+        );
+
+        navigation.classList.remove(
+            "is-open"
+        );
+
+        body.classList.remove(
+            "menu-open"
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuButton.setAttribute(
+            "aria-label",
+            "Open navigation"
+        );
+
+    }
+
+
+
+    if (
+        menuButton &&
+        navigation
+    ) {
+
+        menuButton.addEventListener(
+            "click",
+            () => {
+
+                const menuIsOpen =
+                    navigation.classList.contains(
+                        "is-open"
+                    );
+
+
+                if (menuIsOpen) {
+
+                    closeMenu();
+
+                } else {
+
+                    menuButton.classList.add(
+                        "active"
+                    );
+
+                    navigation.classList.add(
+                        "is-open"
+                    );
+
+                    body.classList.add(
+                        "menu-open"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Close navigation"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        const navigationLinks =
+            navigation.querySelectorAll(
+                "a"
+            );
+
+
+        navigationLinks.forEach(
+            link => {
+
+                link.addEventListener(
+                    "click",
+                    closeMenu
                 );
 
-            });
+            }
+        );
 
-        });
 
 
-        $window.on('load', function() {
+        window.addEventListener(
+            "keydown",
+            event => {
 
-            $window.triggerHandler('scroll');
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
 
-        });
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                if (
+                    window.innerWidth >
+                    760
+                ) {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
 
     }
 
 
-    // CONTACT FORM
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    const submitButton = document.getElementById('submit-button');
+
+    // =====================================
+    // SCROLL REVEAL ANIMATIONS
+    // =====================================
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
 
 
-    if (contactForm) {
+    revealElements.forEach(
+        element => {
 
-        contactForm.addEventListener('submit', async function(event) {
-
-            event.preventDefault();
-
-            submitButton.value = 'Sending...';
-            submitButton.disabled = true;
-
-            formStatus.textContent = '';
-
-            try {
-
-                const formData = new FormData(contactForm);
-
-                const response = await fetch('/', {
-
-                    method: 'POST',
-
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-
-                    body: new URLSearchParams(formData).toString()
-
-                });
+            const delay =
+                element.dataset.delay;
 
 
-                console.log('Netlify response:', response.status);
+            if (delay) {
+
+                element.style.setProperty(
+                    "--delay",
+                    `${delay}ms`
+                );
+
+            }
+
+        }
+    );
 
 
-                if (!response.ok) {
 
-                    throw new Error(
-                        'Submission failed. HTTP status: ' +
-                        response.status
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                !entry.isIntersecting
+                            ) {
+                                return;
+                            }
+
+
+                            entry.target.classList.add(
+                                "is-visible"
+                            );
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
                     );
+
+                },
+
+                {
+                    threshold: 0.12,
+
+                    rootMargin:
+                        "0px 0px -40px"
+                }
+
+            );
+
+
+        revealElements.forEach(
+            element => {
+
+                observer.observe(
+                    element
+                );
+
+            }
+        );
+
+
+    } else {
+
+        revealElements.forEach(
+            element => {
+
+                element.classList.add(
+                    "is-visible"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    // =====================================
+    // NETLIFY CONTACT FORM
+    // =====================================
+
+    if (
+        contactForm &&
+        submitButton &&
+        formStatus
+    ) {
+
+        contactForm.addEventListener(
+            "submit",
+
+            async event => {
+
+                event.preventDefault();
+
+
+                // Disable button while sending
+
+                submitButton.disabled =
+                    true;
+
+
+                if (buttonLabel) {
+
+                    buttonLabel.textContent =
+                        "Sending...";
 
                 }
 
 
                 formStatus.textContent =
-                    'Message sent successfully! I will get back to you soon.';
+                    "";
 
-                contactForm.reset();
+                formStatus.classList.remove(
+                    "error"
+                );
 
 
-            } catch (error) {
+                try {
 
-                console.error('FORM ERROR:', error);
+                    const formData =
+                        new FormData(
+                            contactForm
+                        );
 
-                formStatus.textContent =
-                    'Unable to send message. Please try again.';
 
-            } finally {
+                    const response =
+                        await fetch(
 
-                submitButton.value = 'Send Message';
-                submitButton.disabled = false;
+                            "/",
+
+                            {
+                                method:
+                                    "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/x-www-form-urlencoded"
+
+                                },
+
+                                body:
+                                    new URLSearchParams(
+                                        formData
+                                    ).toString()
+
+                            }
+
+                        );
+
+
+                    if (
+                        !response.ok
+                    ) {
+
+                        throw new Error(
+                            `Submission failed: ${response.status}`
+                        );
+
+                    }
+
+
+                    // Reset form
+
+                    contactForm.reset();
+
+
+                    // Success message
+
+                    formStatus.textContent =
+                        "Message sent successfully! I'll get back to you soon.";
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Contact form error:",
+                        error
+                    );
+
+
+                    formStatus.textContent =
+                        "Unable to send your message right now. Please try again or email me directly.";
+
+
+                    formStatus.classList.add(
+                        "error"
+                    );
+
+
+                } finally {
+
+                    submitButton.disabled =
+                        false;
+
+
+                    if (buttonLabel) {
+
+                        buttonLabel.textContent =
+                            "Send message";
+
+                    }
+
+                }
 
             }
 
-        });
+        );
 
     }
 
-
-})(jQuery);
+})();
