@@ -63,7 +63,7 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -71,6 +71,18 @@
         rel="stylesheet"
         href="assets/css/main.css"
     >
+
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+            .term-line {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
 </head>
 
 <body>
@@ -100,8 +112,7 @@
                 class="logo"
                 aria-label="Muhammad Ismail home"
             >
-                <span class="logo-box">MI</span>
-                <span>Muhammad Ismail</span>
+                <span class="logo-prompt">~/</span><span>ismail</span><span class="logo-cursor">_</span>
             </a>
 
 
@@ -125,6 +136,10 @@
 
                 <a href="#about">
                     About
+                </a>
+
+                <a href="#stack">
+                    Stack
                 </a>
 
                 <a href="#work">
@@ -164,18 +179,14 @@
             id="home"
         >
 
-            <div class="hero-decoration hero-decoration-one"></div>
-            <div class="hero-decoration hero-decoration-two"></div>
-
-
             <div class="container hero-grid">
 
 
-                <div class="hero-content reveal">
+                <div class="hero-content">
 
                     <p class="eyebrow">
                         <span class="status-dot"></span>
-                        SOFTWARE ENGINEER
+                        SOFTWARE ENGINEER - NEW YORK
                     </p>
 
 
@@ -188,9 +199,11 @@
 
 
                     <p class="hero-description">
-                        I turn ideas into polished digital experiences
-                        through responsive design, thoughtful development,
-                        and clean, maintainable code.
+                        Full-stack developer working with JavaScript
+                        and Node every day. I turn ideas into polished,
+                        responsive digital experiences through
+                        thoughtful development and clean,
+                        maintainable code.
                     </p>
 
 
@@ -214,21 +227,21 @@
                     </div>
 
 
-                    <div class="hero-features">
+                    <div class="hero-stats">
 
-                        <div>
-                            <strong>Responsive</strong>
-                            <span>Built for every screen</span>
+                        <div class="stat">
+                            <strong><span data-count="2" data-pad="2">00</span></strong>
+                            <span>Client projects shipped</span>
                         </div>
 
-                        <div>
-                            <strong>Functional</strong>
-                            <span>Designed to work</span>
+                        <div class="stat">
+                            <strong><span data-count="20">0</span>+</strong>
+                            <span>GitHub repositories</span>
                         </div>
 
-                        <div>
-                            <strong>Clean</strong>
-                            <span>Simple, maintainable code</span>
+                        <div class="stat">
+                            <strong><span data-count="6">0</span></strong>
+                            <span>Live websites</span>
                         </div>
 
                     </div>
@@ -237,47 +250,81 @@
 
 
 
-                <div
-                    class="hero-image-wrapper reveal"
-                    data-delay="150"
-                >
+                <div class="hero-terminal reveal">
 
-                    <div class="portrait-container">
+                    <div
+                        class="terminal"
+                        role="img"
+                        aria-label="Terminal showing a developer profile written as JavaScript"
+                    >
 
-                        <div class="portrait-background"></div>
+                        <div class="terminal-bar">
 
-                        <img
-                            src="images/professional.jpg"
-                            alt="Muhammad Ismail, Software Engineer"
-                            class="portrait"
-                        >
+                            <span class="term-dot term-dot-red"></span>
+                            <span class="term-dot term-dot-amber"></span>
+                            <span class="term-dot term-dot-green"></span>
 
-
-                        <div class="floating-card code-card">
-
-                            <span class="code-icon">
-                                &lt;/&gt;
+                            <span class="terminal-title">
+                                ismail@portfolio: ~
                             </span>
-
-                            <div>
-                                <strong>Web Development</strong>
-                                <small>
-                                    Clean & responsive
-                                </small>
-                            </div>
 
                         </div>
 
 
-                        <div class="floating-card available-card">
+                        <div
+                            class="terminal-body"
+                            id="terminal-body"
+                        >
 
-                            <span class="availability-indicator"></span>
+                            <div class="term-line">
+                                <span class="term-prompt">~/ismail $</span>
+                                <span
+                                    class="term-typed"
+                                    id="typed-cmd-1"
+                                ></span><span
+                                    class="term-cursor"
+                                    id="cursor-1"
+                                ></span>
+                            </div>
 
-                            <div>
-                                <strong>Available</strong>
-                                <small>
-                                    For select projects
-                                </small>
+                            <div
+                                class="term-line term-hidden"
+                                id="whoami-out"
+                            >
+                                <span class="term-output">muhammad-ismail</span>
+                            </div>
+
+                            <div class="term-line">
+                                <span class="term-prompt">~/ismail $</span>
+                                <span
+                                    class="term-typed"
+                                    id="typed-cmd-2"
+                                ></span><span
+                                    class="term-cursor term-hidden"
+                                    id="cursor-2"
+                                ></span>
+                            </div>
+
+                            <div
+                                class="term-code term-hidden"
+                                id="dev-object"
+                            >
+<pre><code><span class="ln">1</span>  <span class="tok-kw">const</span> <span class="tok-var">developer</span> <span class="tok-punct">=</span> <span class="tok-punct">{</span>
+<span class="ln">2</span>    <span class="tok-prop">name</span><span class="tok-punct">:</span> <span class="tok-str">"Muhammad Ismail"</span><span class="tok-punct">,</span>
+<span class="ln">3</span>    <span class="tok-prop">location</span><span class="tok-punct">:</span> <span class="tok-str">"New York"</span><span class="tok-punct">,</span>
+<span class="ln">4</span>    <span class="tok-prop">role</span><span class="tok-punct">:</span> <span class="tok-str">"Full-Stack Developer"</span><span class="tok-punct">,</span>
+<span class="ln">5</span>    <span class="tok-prop">stack</span><span class="tok-punct">:</span> <span class="tok-punct">[</span><span class="tok-str">"JavaScript"</span><span class="tok-punct">,</span> <span class="tok-str">"Node.js"</span><span class="tok-punct">,</span> <span class="tok-str">"Express"</span><span class="tok-punct">,</span> <span class="tok-str">"MongoDB"</span><span class="tok-punct">],</span>
+<span class="ln">6</span>    <span class="tok-prop">focus</span><span class="tok-punct">:</span> <span class="tok-str">"REST APIs"</span><span class="tok-punct">,</span>
+<span class="ln">7</span>    <span class="tok-prop">status</span><span class="tok-punct">:</span> <span class="tok-str">"Open to work"</span>
+<span class="ln">8</span>  <span class="tok-punct">};</span></code></pre>
+                            </div>
+
+                            <div class="term-line">
+                                <span class="term-prompt">~/ismail $</span>
+                                <span
+                                    class="term-cursor term-cursor-blink term-hidden"
+                                    id="cursor-end"
+                                ></span>
                             </div>
 
                         </div>
@@ -302,118 +349,234 @@
             id="about"
         >
 
-            <div class="container about-grid">
+            <div class="container">
+
+                <p class="section-comment reveal">
+                    // about
+                </p>
+
+
+                <div class="about-grid">
+
+
+                    <div class="section-heading reveal">
+
+                        <h2>
+                            Efficiency in the process.
+                            <br>
+                            Execution in the details.
+                        </h2>
+
+
+                        <div class="about-badges">
+
+                            <span class="badge">
+                                Studying with Resilient Coders
+                            </span>
+
+                            <span class="badge">
+                                Daily Codewars practice
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="about-content reveal"
+                        data-delay="100"
+                    >
+
+                        <p class="about-intro">
+                            I'm a software engineer who enjoys turning
+                            complex problems into simple, functional web
+                            experiences.
+                        </p>
+
+
+                        <p>
+                            My approach to development is straightforward:
+                            understand the goal, remove unnecessary complexity,
+                            build carefully, and create something that looks
+                            polished while working reliably.
+                        </p>
+
+
+                        <div class="principles">
+
+
+                            <article class="principle">
+
+                                <span class="principle-number">
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        Clear experiences
+                                    </h3>
+
+                                    <p>
+                                        Interfaces should be easy to understand
+                                        and intuitive to use.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="principle">
+
+                                <span class="principle-number">
+                                    02
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        Purposeful design
+                                    </h3>
+
+                                    <p>
+                                        Every visual decision should support
+                                        the content and user experience.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="principle">
+
+                                <span class="principle-number">
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <h3>
+                                        Reliable development
+                                    </h3>
+
+                                    <p>
+                                        Websites should load quickly, work
+                                        properly, and perform across devices.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TECH STACK
+        ========================== -->
+
+        <section
+            class="section stack-section"
+            id="stack"
+        >
+
+            <div class="container">
+
+                <p class="section-comment reveal">
+                    // tech stack
+                </p>
 
 
                 <div class="section-heading reveal">
 
-                    <p class="eyebrow">
-                        ABOUT ME
-                    </p>
-
                     <h2>
-                        Efficiency in the process.
-                        <br>
-                        Execution in the details.
+                        What I build with.
                     </h2>
 
                 </div>
 
 
-
-                <div
-                    class="about-content reveal"
-                    data-delay="100"
-                >
-
-                    <p class="about-intro">
-                        I'm a software engineer who enjoys turning
-                        complex problems into simple, functional web
-                        experiences.
-                    </p>
+                <div class="stack-grid">
 
 
-                    <p>
-                        My approach to development is straightforward:
-                        understand the goal, remove unnecessary complexity,
-                        build carefully, and create something that looks
-                        polished while working reliably.
-                    </p>
+                    <div
+                        class="stack-group reveal"
+                    >
 
+                        <h3>
+                            <span class="stack-comment">//</span> Languages
+                        </h3>
 
-                    <div class="principles">
+                        <div class="stack-tags">
 
+                            <span>JavaScript</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
 
-                        <article class="principle">
-
-                            <span class="principle-number">
-                                01
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Clear experiences
-                                </h3>
-
-                                <p>
-                                    Interfaces should be easy to understand
-                                    and intuitive to use.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="principle">
-
-                            <span class="principle-number">
-                                02
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Purposeful design
-                                </h3>
-
-                                <p>
-                                    Every visual decision should support
-                                    the content and user experience.
-                                </p>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="principle">
-
-                            <span class="principle-number">
-                                03
-                            </span>
-
-                            <div>
-
-                                <h3>
-                                    Reliable development
-                                </h3>
-
-                                <p>
-                                    Websites should load quickly, work
-                                    properly, and perform across devices.
-                                </p>
-
-                            </div>
-
-                        </article>
-
+                        </div>
 
                     </div>
 
-                </div>
 
+                    <div
+                        class="stack-group reveal"
+                        data-delay="70"
+                    >
+
+                        <h3>
+                            <span class="stack-comment">//</span> Backend
+                        </h3>
+
+                        <div class="stack-tags">
+
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>REST APIs</span>
+                            <span>MongoDB</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="stack-group reveal"
+                        data-delay="140"
+                    >
+
+                        <h3>
+                            <span class="stack-comment">//</span> Tools
+                        </h3>
+
+                        <div class="stack-tags">
+
+                            <span>Git</span>
+                            <span>GitHub</span>
+                            <span>Netlify</span>
+                            <span>Vercel</span>
+                            <span>Shopify</span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
 
             </div>
 
@@ -432,14 +595,14 @@
 
             <div class="container">
 
+                <p class="section-comment reveal">
+                    // selected work
+                </p>
+
 
                 <div class="projects-heading reveal">
 
                     <div>
-
-                        <p class="eyebrow">
-                            SELECTED WORK
-                        </p>
 
                         <h2>
                             A few things I've built.
@@ -449,9 +612,9 @@
 
 
                     <p>
-                        Websites built around responsive layouts,
-                        strong presentation, clear navigation, and
-                        practical customer experiences.
+                        Client work and projects built around responsive
+                        layouts, strong presentation, clear navigation,
+                        and practical customer experiences.
                     </p>
 
                 </div>
@@ -461,20 +624,118 @@
                 <div class="project-grid">
 
 
-                    <!-- Boston Barbers -->
+                    <!-- Andrew Makrides -->
 
                     <article class="project-card reveal">
+
+                        <a
+                            href="https://andrewmakrides.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-shot"
+                            aria-label="View the Andrew Makrides Portfolio live site"
+                        >
+
+                            <div
+                                class="shot-fallback"
+                                aria-hidden="true"
+                            >
+                                <span>AM</span>
+                            </div>
+
+                            <img
+                                src="images/andrewmakrides.png"
+                                alt="Andrew Makrides portfolio website"
+                                loading="lazy"
+                                onerror="this.classList.add('is-broken')"
+                            >
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <div class="project-info">
+
+                            <div class="project-category">
+
+                                <span>
+                                    CLIENT WORK
+                                </span>
+
+                                <span>
+                                    01
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+                                Andrew Makrides Portfolio
+                            </h3>
+
+
+                            <p>
+                                A personal portfolio website built
+                                for a college client. Clean,
+                                responsive, and designed to present
+                                his accounting background well.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+
+                            <a
+                                href="https://andrewmakrides.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link"
+                            >
+                                View live project ↗
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Boston Barbers -->
+
+                    <article
+                        class="project-card reveal"
+                        data-delay="70"
+                    >
 
                         <a
                             href="https://resilient-coders-work.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="project-image"
+                            class="project-shot"
+                            aria-label="View the Boston Barbers live site"
                         >
+
+                            <div
+                                class="shot-fallback"
+                                aria-hidden="true"
+                            >
+                                <span>BB</span>
+                            </div>
 
                             <img
                                 src="images/BostonBarbers.png"
                                 alt="Boston Barbers website"
+                                loading="lazy"
+                                onerror="this.classList.add('is-broken')"
                             >
 
                             <span class="project-arrow">
@@ -493,7 +754,7 @@
                                 </span>
 
                                 <span>
-                                    01
+                                    02
                                 </span>
 
                             </div>
@@ -509,6 +770,15 @@
                                 around services, branding, and easy
                                 customer booking.
                             </p>
+
+
+                            <div class="project-tags">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
 
 
                             <a
@@ -530,87 +800,29 @@
 
                     <article
                         class="project-card reveal"
-                        data-delay="70"
+                        data-delay="100"
                     >
 
                         <a
                             href="https://resilient-coders-work-5ymw.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="project-image"
+                            class="project-shot"
+                            aria-label="View the Marconi's live site"
                         >
+
+                            <div
+                                class="shot-fallback"
+                                aria-hidden="true"
+                            >
+                                <span>M</span>
+                            </div>
 
                             <img
                                 src="images/Marconis.png"
                                 alt="Marconi's restaurant website"
-                            >
-
-                            <span class="project-arrow">
-                                ↗
-                            </span>
-
-                        </a>
-
-
-                        <div class="project-info">
-
-                            <div class="project-category">
-
-                                <span>
-                                    RESTAURANT WEBSITE
-                                </span>
-
-                                <span>
-                                    02
-                                </span>
-
-                            </div>
-
-
-                            <h3>
-                                Marconi's
-                            </h3>
-
-
-                            <p>
-                                A restaurant website built around bold
-                                food imagery and straightforward
-                                navigation.
-                            </p>
-
-
-                            <a
-                                href="https://resilient-coders-work-5ymw.vercel.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="project-link"
-                            >
-                                View live project ↗
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- Delancey's -->
-
-                    <article
-                        class="project-card reveal"
-                        data-delay="100"
-                    >
-
-                        <a
-                            href="https://resilient-coders-work-2xrs.vercel.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-image"
-                        >
-
-                            <img
-                                src="images/Delancey'sBagels.png"
-                                alt="Delancey's Bagels website"
+                                loading="lazy"
+                                onerror="this.classList.add('is-broken')"
                             >
 
                             <span class="project-arrow">
@@ -636,19 +848,28 @@
 
 
                             <h3>
-                                Delancey's Bagels
+                                Marconi's
                             </h3>
 
 
                             <p>
-                                A New York inspired bagel shop website
-                                with a welcoming, straightforward
-                                experience.
+                                A restaurant website built around bold
+                                food imagery and straightforward
+                                navigation.
                             </p>
 
 
+                            <div class="project-tags">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+
                             <a
-                                href="https://resilient-coders-work-2xrs.vercel.app/"
+                                href="https://resilient-coders-work-5ymw.vercel.app/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="project-link"
@@ -662,7 +883,7 @@
 
 
 
-                    <!-- Lobster Shack -->
+                    <!-- Delancey's -->
 
                     <article
                         class="project-card reveal"
@@ -670,15 +891,25 @@
                     >
 
                         <a
-                            href="https://resilient-coders-work-jxto.vercel.app/"
+                            href="https://resilient-coders-work-2xrs.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="project-image"
+                            class="project-shot"
+                            aria-label="View the Delancey's Bagels live site"
                         >
 
+                            <div
+                                class="shot-fallback"
+                                aria-hidden="true"
+                            >
+                                <span>DB</span>
+                            </div>
+
                             <img
-                                src="images/LobsterShack.png"
-                                alt="Maine Lobster Shack website"
+                                src="images/Delancey'sBagels.png"
+                                alt="Delancey's Bagels website"
+                                loading="lazy"
+                                onerror="this.classList.add('is-broken')"
                             >
 
                             <span class="project-arrow">
@@ -704,6 +935,93 @@
 
 
                             <h3>
+                                Delancey's Bagels
+                            </h3>
+
+
+                            <p>
+                                A New York inspired bagel shop website
+                                with a welcoming, straightforward
+                                experience.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+
+                            <a
+                                href="https://resilient-coders-work-2xrs.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link"
+                            >
+                                View live project ↗
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Lobster Shack -->
+
+                    <article
+                        class="project-card reveal"
+                        data-delay="160"
+                    >
+
+                        <a
+                            href="https://resilient-coders-work-jxto.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-shot"
+                            aria-label="View the Maine Lobster Shack live site"
+                        >
+
+                            <div
+                                class="shot-fallback"
+                                aria-hidden="true"
+                            >
+                                <span>ML</span>
+                            </div>
+
+                            <img
+                                src="images/LobsterShack.png"
+                                alt="Maine Lobster Shack website"
+                                loading="lazy"
+                                onerror="this.classList.add('is-broken')"
+                            >
+
+                            <span class="project-arrow">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <div class="project-info">
+
+                            <div class="project-category">
+
+                                <span>
+                                    RESTAURANT WEBSITE
+                                </span>
+
+                                <span>
+                                    05
+                                </span>
+
+                            </div>
+
+
+                            <h3>
                                 Maine Lobster Shack
                             </h3>
 
@@ -713,6 +1031,15 @@
                                 strong imagery and an easy customer
                                 experience.
                             </p>
+
+
+                            <div class="project-tags">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
 
 
                             <a
@@ -734,19 +1061,29 @@
 
                     <article
                         class="project-card reveal"
-                        data-delay="160"
+                        data-delay="190"
                     >
 
                         <a
                             href="https://resilient-coders-work-9ynx.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="project-image"
+                            class="project-shot"
+                            aria-label="View the 2Street Water Ice live site"
                         >
+
+                            <div
+                                class="shot-fallback"
+                                aria-hidden="true"
+                            >
+                                <span>2S</span>
+                            </div>
 
                             <img
                                 src="images/2StreetIce.png"
                                 alt="2Street Water Ice website"
+                                loading="lazy"
+                                onerror="this.classList.add('is-broken')"
                             >
 
                             <span class="project-arrow">
@@ -765,7 +1102,7 @@
                                 </span>
 
                                 <span>
-                                    05
+                                    06
                                 </span>
 
                             </div>
@@ -783,6 +1120,15 @@
                             </p>
 
 
+                            <div class="project-tags">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+
                             <a
                                 href="https://resilient-coders-work-9ynx.vercel.app/"
                                 target="_blank"
@@ -797,56 +1143,117 @@
                     </article>
 
 
+                </div>
 
-                    <!-- Upcoming -->
+            </div>
 
-                    <article
-                        class="project-card coming-soon reveal"
-                        data-delay="190"
+        </section>
+
+
+
+        <!-- =========================
+             JOURNEY
+        ========================== -->
+
+        <section
+            class="section journey-section"
+            id="journey"
+        >
+
+            <div class="container">
+
+                <p class="section-comment reveal">
+                    // journey
+                </p>
+
+
+                <div class="section-heading reveal">
+
+                    <h2>
+                        Where I'm headed.
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div
+                        class="timeline-item reveal"
                     >
 
-                        <div class="project-placeholder">
+                        <span class="timeline-date">
+                            Now
+                        </span>
 
-                            <span>
-                                CURRENT PROJECT
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                        </div>
-
-
-                        <div class="project-info">
-
-                            <div class="project-category">
-
-                                <span>
-                                    CLIENT WORK
-                                </span>
-
-                                <span>
-                                    06
-                                </span>
-
-                            </div>
-
+                        <div>
 
                             <h3>
-                                New Client Project
+                                Studying with Resilient Coders
                             </h3>
 
-
                             <p>
-                                Currently developing a new website for
-                                a client. More details will be added
-                                when the project launches.
+                                JavaScript, Node.js, and REST APIs,
+                                with daily Codewars practice to keep
+                                problem-solving sharp.
                             </p>
 
                         </div>
 
-                    </article>
+                    </div>
+
+
+                    <div
+                        class="timeline-item reveal"
+                        data-delay="70"
+                    >
+
+                        <span class="timeline-date">
+                            2026
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Freelance client work
+                            </h3>
+
+                            <p>
+                                Portfolio websites and Shopify
+                                storefronts for real clients, from
+                                first call to launch.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="timeline-item reveal"
+                        data-delay="140"
+                    >
+
+                        <span class="timeline-date">
+                            Next
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                First full-time engineering role
+                            </h3>
+
+                            <p>
+                                Looking for a team where I can
+                                contribute, learn fast, and keep
+                                building.
+                            </p>
+
+                        </div>
+
+                    </div>
 
 
                 </div>
@@ -866,198 +1273,215 @@
             id="contact"
         >
 
-            <div class="container contact-grid">
+            <div class="container">
+
+                <p class="section-comment reveal">
+                    // contact
+                </p>
 
 
-                <div class="contact-intro reveal">
-
-                    <p class="eyebrow light-eyebrow">
-                        LET'S WORK TOGETHER
-                    </p>
+                <div class="contact-grid">
 
 
-                    <h2>
-                        Have a project in mind?
-                    </h2>
+                    <div class="contact-intro reveal">
+
+                        <h2>
+                            Let's build something.
+                        </h2>
 
 
-                    <p>
-                        Tell me what you're looking to build.
-                        Whether you need a new website or want to
-                        improve an existing one, I'd be happy to
-                        hear about it.
-                    </p>
-
-
-                    <div class="contact-details">
-
-                        <a href="mailto:ismailrehman01@gmail.com">
-                            <span>Email</span>
-                            <strong>
-                                ismailrehman01@gmail.com
-                            </strong>
-                        </a>
-
-
-                        <a href="tel:+19292399587">
-                            <span>Phone</span>
-                            <strong>
-                                929-239-9587
-                            </strong>
-                        </a>
-
-
-                        <a
-                            href="https://github.com/ismailrehman154-gif"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>GitHub</span>
-                            <strong>
-                                View my profile ↗
-                            </strong>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="contact-form-card reveal"
-                    data-delay="120"
-                >
-
-                    <form
-                        id="contact-form"
-                        name="contact"
-                        method="POST"
-                        data-netlify="true"
-                        netlify-honeypot="bot-field"
-                    >
-
-                        <input
-                            type="hidden"
-                            name="form-name"
-                            value="contact"
-                        >
-
-
-                        <p class="hidden-field">
-
-                            <label>
-                                Don't fill this out:
-
-                                <input name="bot-field">
-
-                            </label>
-
+                        <p>
+                            Have a project in mind? Tell me what
+                            you're looking to build. Whether you need
+                            a new website or want to improve an
+                            existing one, I'd be happy to hear
+                            about it.
                         </p>
 
 
+                        <div class="contact-details">
 
-                        <div class="form-row">
+                            <a href="mailto:ismailrehman01@gmail.com">
+                                <span>Email</span>
+                                <strong>
+                                    ismailrehman01@gmail.com
+                                </strong>
+                            </a>
+
+
+                            <a href="tel:+19292399587">
+                                <span>Phone</span>
+                                <strong>
+                                    929-239-9587
+                                </strong>
+                            </a>
+
+
+                            <a
+                                href="https://github.com/ismailrehman154-gif"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>GitHub</span>
+                                <strong>
+                                    View my profile ↗
+                                </strong>
+                            </a>
+
+
+                            <a
+                                href="https://www.linkedin.com/in/ismail-rehman-ab6900265/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>LinkedIn</span>
+                                <strong>
+                                    View my profile ↗
+                                </strong>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="contact-form-card reveal"
+                        data-delay="120"
+                    >
+
+                        <form
+                            id="contact-form"
+                            name="contact"
+                            method="POST"
+                            data-netlify="true"
+                            netlify-honeypot="bot-field"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="form-name"
+                                value="contact"
+                            >
+
+
+                            <p class="hidden-field">
+
+                                <label>
+                                    Don't fill this out:
+
+                                    <input name="bot-field">
+
+                                </label>
+
+                            </p>
+
+
+
+                            <div class="form-row">
+
+                                <div class="field">
+
+                                    <label for="name">
+                                        Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Your name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="email">
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="you@email.com"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
 
                             <div class="field">
 
-                                <label for="name">
-                                    Name
+                                <label for="subject">
+                                    Subject
                                 </label>
 
                                 <input
                                     type="text"
-                                    name="name"
-                                    id="name"
-                                    placeholder="Your name"
+                                    name="subject"
+                                    id="subject"
+                                    placeholder="What would you like to build?"
                                     required
                                 >
 
                             </div>
+
 
 
                             <div class="field">
 
-                                <label for="email">
-                                    Email
+                                <label for="message">
+                                    Message
                                 </label>
 
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="you@email.com"
+                                <textarea
+                                    name="message"
+                                    id="message"
+                                    rows="6"
+                                    placeholder="Tell me about your project..."
                                     required
-                                >
+                                ></textarea>
 
                             </div>
 
-                        </div>
 
 
-
-                        <div class="field">
-
-                            <label for="subject">
-                                Subject
-                            </label>
-
-                            <input
-                                type="text"
-                                name="subject"
-                                id="subject"
-                                placeholder="What would you like to build?"
-                                required
+                            <button
+                                type="submit"
+                                id="submit-button"
+                                class="submit-button"
                             >
 
-                        </div>
+                                <span class="button-label">
+                                    Send message
+                                </span>
+
+                                <span>
+                                    →
+                                </span>
+
+                            </button>
 
 
+                            <p
+                                id="form-status"
+                                aria-live="polite"
+                            ></p>
 
-                        <div class="field">
+                        </form>
 
-                            <label for="message">
-                                Message
-                            </label>
+                    </div>
 
-                            <textarea
-                                name="message"
-                                id="message"
-                                rows="6"
-                                placeholder="Tell me about your project..."
-                                required
-                            ></textarea>
-
-                        </div>
-
-
-
-                        <button
-                            type="submit"
-                            id="submit-button"
-                            class="submit-button"
-                        >
-
-                            <span class="button-label">
-                                Send message
-                            </span>
-
-                            <span>
-                                →
-                            </span>
-
-                        </button>
-
-
-                        <p
-                            id="form-status"
-                            aria-live="polite"
-                        ></p>
-
-                    </form>
 
                 </div>
-
 
             </div>
 
@@ -1077,6 +1501,7 @@
         <div class="container footer-content">
 
             <p>
+                <span class="term-prompt">~/ismail $</span>
                 © <span id="year"></span>
                 Muhammad Ismail.
             </p>
@@ -1098,6 +1523,14 @@
                     rel="noopener noreferrer"
                 >
                     X
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/ismail-rehman-ab6900265/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
                 </a>
 
                 <a
