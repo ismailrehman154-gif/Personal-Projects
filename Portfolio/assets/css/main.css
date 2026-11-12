@@ -26,9 +26,9 @@
     --sky: #7dd3fc;
     --rose: #fda4af;
 
-    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
     --radius: 14px;
     --radius-small: 9px;
